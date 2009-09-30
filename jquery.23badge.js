@@ -8,21 +8,18 @@ jQuery.fn.badge = function(config) {
     var photo_array = data.photos.photo;
     photo_array.sort(sort_random);
     var markup = $.map(photo_array.slice(0, config.number || 10), function(photo, index) {
-      var url_segments = [];
-      url_segments.push('http://www.23hq.com');
-      url_segments.push(photo.server);
-      url_segments.push([photo.id, photo.secret, 's'].join('_')+'.jpg');
-      var img_src_attr = url_segments.join('/');
-
-      url_segments = ['http://www.23hq.com'];
-      url_segments.push(config.user_name);
-      url_segments.push('photo');
-      url_segments.push(photo.id);
-      var href_attr = url_segments.join('/');
-      var alt_attr = photo.title;
-      return '<a href="'+href_attr+'"><img src="'+img_src_attr+'" alt="'+alt_attr+'" class="badge-photo" /></a>';
-    }).join("\n");
-    elem.html(markup);
+      $("<img/>").attr("src",
+        'http://www.23hq.com/{{server}}/{{filename}}'
+          .replace(/{{server}}/, photo.server)
+          .replace(/{{filename}}/, [photo.id, photo.secret, 's'].join('_')+'.jpg'))
+        .attr("alt", photo.title)
+        .attr("class", "badge-photo")
+        .appendTo(elem.selector)
+        .wrap('<a href="http://www.23hq.com/{{user}}/photo/{{photo}}"></a>'
+          .replace(/{{user}}/, config.user_name)
+          .replace(/{{photo}}/, photo.id)
+        );
+    });
   };
 
   jQuery.getJSON('http://www.23hq.com/services/rest?user_id='+config.user_id+'&method=flickr.people.getPublicPhotos&format=json&jsoncallback=?', show_photos);
