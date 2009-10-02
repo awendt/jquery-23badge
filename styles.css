@@ -1,0 +1,28 @@
+body {
+  font-family:"Trebuchet MS",Arial,sans-serif;
+  width: 600px;
+  margin: 20px auto;
+  background-color:#454545;
+  color:#ccc;
+}
+
+#badge {
+  width: 420px;
+}
+
+a {
+  color:#ff0;
+}
+
+a:visited {
+  color:#cc5;
+}
+
+#download {
+  float: right;
+  margin-right:-100px;
+}
+
+.author {
+  font-size:0.5em;
+}
