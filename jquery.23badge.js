@@ -17,6 +17,8 @@ jQuery.fn.badge = function(config) {
         .attr("alt", photo.title)
         .attr("title", photo.title)
         .attr("class", "badge-photo")
+        .attr("width", config.size || 100)
+        .attr("height", config.size || 100)
         .appendTo(elem.selector)
         .wrap('<a href="http://www.23hq.com/{{user}}/photo/{{photo}}"></a>'
           .replace(/{{user}}/, config.user_name)
