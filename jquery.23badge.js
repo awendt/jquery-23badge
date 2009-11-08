@@ -10,7 +10,7 @@ jQuery.fn.badge = function(config) {
     var photo_array = data.photos.photo;
     var link_text = config.link_text || "See more of my photos on 23";
     photo_array.sort(sort_random);
-    $.each(photo_array.slice(0, config.number || 10), function(index, photo) {
+    $.each(photo_array.slice(0, config.show || 10), function(index, photo) {
       $("<img/>").attr("src",
         'http://www.23hq.com/{{server}}/{{filename}}'
           .replace(/{{server}}/, photo.server)
