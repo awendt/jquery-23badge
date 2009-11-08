@@ -8,6 +8,7 @@ jQuery.fn.badge = function(config) {
 
   var show_photos = function(data) {
     var photo_array = data.photos.photo;
+    var link_text = config.link_text || "See more of my photos on 23";
     photo_array.sort(sort_random);
     $.each(photo_array.slice(0, config.number || 10), function(index, photo) {
       $("<img/>").attr("src",
@@ -25,6 +26,7 @@ jQuery.fn.badge = function(config) {
           .replace(/{{photo}}/, photo.id)
         );
     });
+    $(elem).append('<a href="http://www.23hq.com/'+ config.user_name +'" class="more_photos">'+ link_text +'</a>')
   };
 
   jQuery.getJSON('http://www.23hq.com/services/rest?user_id='+config.user_id+'&method=flickr.people.getPublicPhotos&format=json&jsoncallback=?', show_photos);
