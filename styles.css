@@ -26,3 +26,12 @@ a:visited {
 .author {
   font-size:0.5em;
 }
+
+#enter_username {
+  width:70%;
+  margin:0 auto;
+}
+
+#enter_username button {
+  margin-left:10px;
+}

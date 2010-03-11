@@ -10,6 +10,15 @@
   <script type="text/javascript" src="jquery-1.4.2.min.js"></script>
   <script type="text/javascript" src="jquery.23badge.js"></script>
   <script type="text/javascript">
+    <!--
+    var show_username = function(data) {
+      var provided_name = $("#username").val();
+      if (data.stat === "ok" && data.hasOwnProperty("user") && data.user.hasOwnProperty("id")) {
+        alert(provided_name +", your user_id on 23hq.com is " + data.user.id);
+      } else {
+        alert("Could not find a user named '"+ provided_name +"' on 23hq.com");
+      }
+    };
     jQuery(function() {
       $("#badge").badge({
         user_name: 'awendt',
@@ -17,7 +26,11 @@
         show: 12,
         link_text: "All my photos on 23 Photo Sharing"
       });
+      $("#get_my_user_id").click(function() {
+	jQuery.getJSON("http://www.23hq.com/services/rest/?method=people.findByUsername&format=json&username="+$("#username").val()+"&jsoncallback=?", show_username);
+      });
     });
+    //-->
   </script>
 </head>
 <body>
@@ -49,6 +62,24 @@
 <p>You can also clone the project with <a href="http://git-scm.com">Git</a>
   by running:</p>
 <pre>$ git clone git://github.com/awendt/jquery-23badge</pre>
+
+<h2>Usage</h2>
+
+<p>By default, the widget shows 10 of your 50 most recent photos at random.
+If you want it to display the most recent 10 photos, you're welcome to send me a patch.</p>
+
+<p>You'll need your <code>user_id</code> from 23 Photo Sharing.
+(Note: This is not your username that you use for logging into the site!)
+In fact, let <em>me</em> get that for you:
+</p>
+
+<p id="enter_username">
+<input id="username" type="text" size="10" /><button id="get_my_user_id">Get my user id!</button>
+</p>
+
+<p>This example shows 12 photos with a certain link text:</p>
+
+<script src="http://gist.github.com/329555.js?file=jquery.23badge.example.js" type="text/javascript"></script>
 
 <h2>License</h2>
 
