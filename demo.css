@@ -2,20 +2,25 @@ body {
   font-family:"Trebuchet MS",Arial,sans-serif;
   width: 600px;
   margin: 20px auto;
-  background-color:#454545;
-  color:#ccc;
+  background-color:#3a2b25;
+  color:#ccbcac;
+  line-height:1.5em;
 }
 
 #badge {
   width: 420px;
 }
 
+img.badge-photo:hover {
+  border: 1px solid #ccbcac;
+}
+
 a {
-  color:#ff0;
+  color:#0c9112;
 }
 
 a:visited {
-  color:#cc5;
+  color:#44aa40;
 }
 
 #download {
