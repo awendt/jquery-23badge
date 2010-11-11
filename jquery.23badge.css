@@ -1,10 +1,5 @@
 img.badge-photo {
-  border: 1px solid transparent;
   padding: 0;
-}
-
-img.badge-photo:hover {
-  border: 1px solid #ff0;
 }
 
 body {
