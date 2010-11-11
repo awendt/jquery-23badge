@@ -8,11 +8,11 @@ body {
 }
 
 #badge {
-  width: 420px;
+  width: 500px;
 }
 
 img.badge-photo:hover {
-  border: 1px solid #ccbcac;
+  background-color: #fff;
 }
 
 a {
@@ -39,4 +39,14 @@ a:visited {
 
 #enter_username button {
   margin-left:10px;
+}
+
+img.badge-photo {
+  border: 1px solid transparent;
+  padding: 3px;
+  margin: 5px;
+  background-color:#CCBCAC;
+  -moz-box-shadow: 1px 1px 5px 0px #000;
+  -webkit-box-shadow: 1px 1px 5px 0px #000;
+  box-shadow: 1px 1px 5px 0px #000;
 }
